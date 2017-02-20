@@ -5,7 +5,8 @@ const func: any = f => f;
 
 export const log = !__DEV__ ? func : (condition: any, format?: string, ...extra: any[]) => {
     if (!condition) {
-        console.log(format);
+        console.log(`Log: ${format}`);
+        return;
     }
     let argIndex = 0;
     format.replace(/%s/g, function () {
@@ -13,13 +14,14 @@ export const log = !__DEV__ ? func : (condition: any, format?: string, ...extra:
     });
 };
 
-export const warning = !__DEV__ ? func : () => npmWarning;
+export const warning = !__DEV__ ? func : npmWarning;
 
 export const error = !__DEV__ ? func : invariant;
 
 export const info = !__DEV__ ? func : (condition: any, format?: string, ...extra: any[]) => {
     if (!condition) {
-        console.info(format);
+        console.info(`Info: ${format}`);
+        return;
     }
     let argIndex = 0;
     format.replace(/%s/g, function () {

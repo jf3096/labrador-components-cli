@@ -1,8 +1,7 @@
 import * as shell from 'shelljs';
-import * as invariant from 'invariant';
 import * as path from 'path';
 import {mirrorArray2Object} from './utils';
-import {warning} from './logs';
+import {warning, error, info} from './logs';
 const recursive = require('recursive-readdir');
 const fs = require('fs-extra');
 
@@ -21,6 +20,7 @@ export async function copyFilesIfNoneExist(rawSourceSrc: string, rawTargetSrc: s
     const relativeTargetMirrorObject = mirrorArray2Object(targetFiles.map((targetFile: string) => {
         return path.relative(rawTargetSrc, targetFile);
     }));
+
     for (const key in relativeSourceMirrorObject) {
         const isExist = relativeTargetMirrorObject[key];
         if (isExist) {
@@ -28,14 +28,21 @@ export async function copyFilesIfNoneExist(rawSourceSrc: string, rawTargetSrc: s
         } else {
             const source = path.resolve(rawSourceSrc, key);
             const destination = path.resolve(rawTargetSrc, key);
-            fs.copy(source, destination, err => warning(err, err.stack));
+            fs.copy(source, destination, err => {
+                if (err) {
+                    error(false, err.stack)
+                }
+                else {
+                    info(false, `${key} 文件复制成功。`);
+                }
+            });
         }
     }
 }
 
 export function getAllFiles(sourceFileSrc: string): Promise<string[]> {
     return new Promise(resolve => recursive(sourceFileSrc, (err, files) => {
-        invariant(!err, err && err.stack);
+        error(!err, err && err.toString());
         resolve(files);
     }));
 }

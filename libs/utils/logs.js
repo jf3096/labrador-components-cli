@@ -5,18 +5,20 @@ const __DEV__ = process.env.NODE_ENV !== 'production';
 const func = f => f;
 exports.log = !__DEV__ ? func : (condition, format, ...extra) => {
     if (!condition) {
-        console.log(format);
+        console.log(`Log: ${format}`);
+        return;
     }
     let argIndex = 0;
     format.replace(/%s/g, function () {
         return extra[argIndex++];
     });
 };
-exports.warning = !__DEV__ ? func : () => npmWarning;
+exports.warning = !__DEV__ ? func : npmWarning;
 exports.error = !__DEV__ ? func : invariant;
 exports.info = !__DEV__ ? func : (condition, format, ...extra) => {
     if (!condition) {
-        console.info(format);
+        console.info(`Info: ${format}`);
+        return;
     }
     let argIndex = 0;
     format.replace(/%s/g, function () {

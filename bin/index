@@ -3,4 +3,4 @@
 'use strict';
 
 process.title = 'lcc';
-require('../lib/index');
+require('../index');

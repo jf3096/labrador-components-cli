@@ -8,7 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const shell = require('shelljs');
-const invariant = require('invariant');
 const path = require('path');
 const utils_1 = require('./utils');
 const logs_1 = require('./logs');
@@ -36,7 +35,14 @@ function copyFilesIfNoneExist(rawSourceSrc, rawTargetSrc) {
             else {
                 const source = path.resolve(rawSourceSrc, key);
                 const destination = path.resolve(rawTargetSrc, key);
-                fs.copy(source, destination, err => logs_1.warning(err, err.stack));
+                fs.copy(source, destination, err => {
+                    if (err) {
+                        logs_1.error(false, err.stack);
+                    }
+                    else {
+                        logs_1.info(false, `${key} 文件复制成功。`);
+                    }
+                });
             }
         }
     });
@@ -44,7 +50,7 @@ function copyFilesIfNoneExist(rawSourceSrc, rawTargetSrc) {
 exports.copyFilesIfNoneExist = copyFilesIfNoneExist;
 function getAllFiles(sourceFileSrc) {
     return new Promise(resolve => recursive(sourceFileSrc, (err, files) => {
-        invariant(!err, err && err.stack);
+        logs_1.error(!err, err && err.toString());
         resolve(files);
     }));
 }
