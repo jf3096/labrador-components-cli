@@ -1,0 +1,21 @@
+.bottom-button {
+  height: 130rpx;
+}
+.bottom-button-content {
+  box-sizing: border-box;
+  height: 132rpx;
+  padding: 20rpx;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top: 1rpx solid #c5c5c5;
+}
+.bottom-button-full {
+  width: 100%;
+  font-size: 36rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+}

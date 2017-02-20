@@ -1,0 +1,5 @@
+<view class="bottom-button">
+    <view class="bottom-button-content">
+        <button class="bottom-button-full" bindtap="bindTap" type="{{props.type || primary}}">{{props.text}}</button>
+    </view>
+</view>

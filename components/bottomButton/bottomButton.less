@@ -1,0 +1,26 @@
+@import (reference) '../../assets/css/index';
+
+@bottomButton: bottom-button;
+
+.@{bottomButton} {
+  @height: 130;
+  .heightSingle(@height);
+  &-content {
+    box-sizing: border-box;
+    .heightSingle(@height+2);
+    .padding(20);
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-top: (1rpx) solid #c5c5c5;
+  }
+  &-full {
+    width: 100%;
+    .fontSize(36);
+    .heightSingle(88);
+    .lineHeight(88);
+  }
+}
