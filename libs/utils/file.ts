@@ -47,14 +47,38 @@ export function getAllFiles(sourceFileSrc: string): Promise<string[]> {
     }));
 }
 
-export const getAvailableComponents = (() => {
-    let result = null;
-    return () => {
-        if (!result) {
+export const getAvailableComponentNames = (() => {
+    let componentNames = null;
+    return (componentName?: string) => {
+        if (!componentNames) {
             const componentsDir = path.resolve(__dirname, '../../components');
-            const dirs = fs.readdirSync(componentsDir);
-            result = '> ' + dirs.join('\r\n> ');
+            componentNames = fs.readdirSync(componentsDir);
         }
-        return result;
+        if (componentName) {
+            const index = componentNames.indexOf(componentName);
+            if (index > 0) {
+                return [componentNames[index]];
+            }
+            const reduces = componentNames.reduce((prev: string[], current: string) => {
+                if (current.startsWith(componentName)) {
+                    prev.push(current);
+                }
+                return prev;
+            }, []);
+            if (reduces.length) {
+                return reduces;
+            }
+        }
+        return componentNames;
+    }
+})();
+
+export const getAvailableComponentsString = (() => {
+    let str = null;
+    return (): string => {
+        if (!str) {
+            str = '> ' + getAvailableComponentNames().join('\r\n> ');
+        }
+        return str;
     }
 })();

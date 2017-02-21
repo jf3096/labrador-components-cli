@@ -28,24 +28,27 @@
 
 ## Labrador-Components-Cli 命令
 
-#### `labrador-components-cli create <component name>` 创建组件
+#### `labrador-components-cli <component name>` 创建组件
 
-```sh
-  Commands:
-      create|c <name>  创建Labrador组件
+支持模糊搜索, <i>labrador-components-cli bot</i>, 这样能在列表中找到bottom直接创建
+```bash
+E:\WebstormProjects\labrador-components-cli>labrador-components-cli bot
+Warning: component文件不存在, 自动创建路劲E:\WebstormProjects\labrador-components-cli\__components\bottomButton
+Info: bottomButton.css 文件复制成功。
+Info: bottomButton.js 文件复制成功。
+Info: bottomButton.xml 文件复制成功。
+Info: bottomButton.less 文件复制成功。
+Info: bottomButton.ts 文件复制成功。
+```
 
-      > bottomButton
-      > plainInput
-      > reviewStatus
-      > scrollStatusBar
-      > swiper
-      > tab
-      > toast
 
-    Options:
+如果搜索结果大于1, 返回过滤后的列表。如：<i>labrador-components-cli s</i>
 
-      -h, --help     output usage information
-      -V, --version  output the version number
+```bash
+    E:\WebstormProjects\labrador-components-cli>labrador-components-cli s
+    ? 选择组件 (Use arrow keys)
+    > scrollStatusBar
+      swiper
 ```
 
 ## 开源协议

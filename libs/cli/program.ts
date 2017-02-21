@@ -1,13 +1,15 @@
 import * as program from 'commander';
 import {packageJSON} from '../utils/utils';
-import createComponent from '../../libs/components/components';
-import {getAvailableComponents} from '../utils/file';
+import {getAvailableComponentsString} from '../utils/file';
+import createComponent from '../components/components';
 program
     .version(packageJSON.version);
 program
     .command('create <name>')
     .alias('c')
-    .description(`创建Labrador组件\r\n\r\n${getAvailableComponents()}`)
-    .action((name) => createComponent(name));
-program.parse(process.argv);
+    .description(`创建Labrador组件\r\n\r\n${getAvailableComponentsString()}`)
+    .action((name) => {
+        createComponent(name);
+    })
+    .parse(process.argv);
 export default program;

@@ -55,14 +55,37 @@ function getAllFiles(sourceFileSrc) {
     }));
 }
 exports.getAllFiles = getAllFiles;
-exports.getAvailableComponents = (() => {
-    let result = null;
-    return () => {
-        if (!result) {
+exports.getAvailableComponentNames = (() => {
+    let componentNames = null;
+    return (componentName) => {
+        if (!componentNames) {
             const componentsDir = path.resolve(__dirname, '../../components');
-            const dirs = fs.readdirSync(componentsDir);
-            result = '> ' + dirs.join('\r\n> ');
+            componentNames = fs.readdirSync(componentsDir);
         }
-        return result;
+        if (componentName) {
+            const index = componentNames.indexOf(componentName);
+            if (index > 0) {
+                return [componentNames[index]];
+            }
+            const reduces = componentNames.reduce((prev, current) => {
+                if (current.startsWith(componentName)) {
+                    prev.push(current);
+                }
+                return prev;
+            }, []);
+            if (reduces.length) {
+                return reduces;
+            }
+        }
+        return componentNames;
+    };
+})();
+exports.getAvailableComponentsString = (() => {
+    let str = null;
+    return () => {
+        if (!str) {
+            str = '> ' + exports.getAvailableComponentNames().join('\r\n> ');
+        }
+        return str;
     };
 })();
