@@ -1,0 +1,27 @@
+<view class="plain-input">
+    <view class="plain-input-label">
+        {{props.label}}
+    </view>
+    <view class="plain-input-control" bindtap="bindTap">
+        <input type="{{props.type || 'text'}}"
+               maxlength="{{props.maxLength || -1}}"
+               class="plain-input-input"
+               bindinput="bindInput"
+               placeholder-class="plain-input-placeholder"
+               value="{{state.value}}"
+               placeholder="{{props.placeholder}}"
+               disabled="{{props.clickable}}"
+        />
+    </view>
+    <view wx:if="{{props.retrieveSMSCode}}">
+        <button loading="{{state.btnLoading}}"
+                disabled="{{state.btnDisable}}"
+                class="plain-input-btn"
+                hover-stay-time="{{props.$HOVER_STAY_TIME}}"
+                hover="true"
+                bindtap="bindFetchSMSTap">
+            {{state.counter ? '已发送('+state.counter+'s)':'获取验证码'}}
+        </button>
+    </view>
+    <view wx:if="{{props.clickable}}" bindtap="bindTap" class="plain-input-more kad kad-arrow-right"/>
+</view>

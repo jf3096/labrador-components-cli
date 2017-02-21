@@ -1,0 +1,27 @@
+.toast-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+}
+.toast-main {
+  position: absolute;
+  bottom: 100rpx;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  text-align: center;
+}
+.toast-box {
+  display: inline-block;
+  border-radius: 10rpx;
+  padding: 26rpx 10rpx;
+  font-size: 30rpx;
+  line-height: 1.5;
+  color: #fff;
+  max-width: 600rpx;
+  background-color: rgba(0, 0, 0, 0.85);
+  text-align: center;
+}

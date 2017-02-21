@@ -1,0 +1,51 @@
+@import (reference) '../../assets/css/index';
+
+@plainInput: plain-input;
+
+.@{plainInput} {
+  .flex();
+  .flex-hc();
+  background-color: #fff;
+  .padding4(0, 20, 0, 40);
+  .heightSingle(88);
+
+  &-label {
+    color: #222222;
+    .fontSize(32);
+    .widthSingle(160);
+    .marginRight(20);
+    .heightSingle(42);
+    .lineHeight(42);
+  }
+  &-control {
+    .flex1();
+  }
+
+  &-input {
+    width: 100%;
+    color: #222222;
+    .fontSize(32);
+    .heightSingle(42);
+    .lineHeight(42);
+  }
+
+  &-placeholder {
+    .fontSize(26);
+  }
+
+  &-btn {
+    .fontSize(32);
+    color: #fcb231;
+    border: none;
+    background-color: transparent !important;
+    &::after {
+      display: none;
+    }
+  }
+
+  &-more {
+    .fontSize(28);
+    .lineHeight(88);
+    .heightSingle(88);
+  }
+}

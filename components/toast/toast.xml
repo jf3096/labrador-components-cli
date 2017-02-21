@@ -1,0 +1,8 @@
+<view hidden="{{!state.visible}}" class="toast">
+    <view wx:if="{{props.mask}}" class="toast-overlay"/>
+    <view class="toast-main">
+        <view class="toast-box">
+            {{props.message}}
+        </view>
+    </view>
+</view>

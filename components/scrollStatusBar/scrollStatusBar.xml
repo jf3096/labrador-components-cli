@@ -1,0 +1,20 @@
+<view>
+    <view wx:if="{{props.status === 'loading'}}" class="scroll-status-bar-loader">
+        <button loading="true"
+                disabled="true"
+                class="scroll-status-bar-btn"
+        >
+            数据获取中, 请稍后...
+        </button>
+    </view>
+    <view wx:elif="{{props.status === 'empty'}}" class="scroll-status-bar-loader">
+        <button disabled="true" class="scroll-status-bar-btn">
+            暂无相关数据
+        </button>
+    </view>
+    <view wx:elif="{{props.status === 'end'}}" class="scroll-status-bar-loader">
+        <button disabled="true" class="scroll-status-bar-btn">
+            没有更多数据了
+        </button>
+    </view>
+</view>

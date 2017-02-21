@@ -1,0 +1,13 @@
+<swiper
+        class="swiper"
+        indicator-dots="{{props.indicatorDots || true}}"
+        autoplay="{{props.autoplay || true}}"
+        interval="{{props.interval || 5000}}"
+        duration="{{props.duration || 800}}"
+>
+    <block wx:for="{{props.imgUrls}}">
+        <swiper-item data-url="{{item}}" bindtap="bindTapImage">
+            <image src="{{item}}" class="swiper-img"/>
+        </swiper-item>
+    </block>
+</swiper>

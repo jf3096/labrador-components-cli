@@ -1,0 +1,15 @@
+.scroll-status-bar-loader {
+  height: 84rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.scroll-status-bar-btn {
+  font-size: 26rpx;
+  color: #fcb231;
+  border: none;
+  background-color: transparent !important;
+}
+.scroll-status-bar-btn::after {
+  display: none;
+}

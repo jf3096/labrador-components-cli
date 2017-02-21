@@ -1,6 +1,6 @@
 {
   "name": "labrador-components-cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A list of component widgets for wechat app for labrador",
   "main": "index.js",
   "bin": "./bin/index",
@@ -14,12 +14,11 @@
     "fs-extra": "^2.0.0",
     "recursive-readdir": "^2.1.1",
     "shelljs": "^0.7.6",
-    "warning": "^3.0.0"
+    "warning": "^3.0.0",
+    "invariant": "^2.2.2"
   },
   "devDependencies": {
     "@types/node": "^7.0.5",
-    "@types/warning": "^3.0.0",
-    "invariant": "^2.2.2",
-    "warning": "^3.0.0"
+    "@types/warning": "^3.0.0"
   }
 }

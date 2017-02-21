@@ -1,0 +1,42 @@
+.plain-input {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 0rpx 20rpx 0rpx 40rpx;
+  height: 88rpx;
+}
+.plain-input-label {
+  color: #222222;
+  font-size: 32rpx;
+  width: 160rpx;
+  margin-right: 20rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+}
+.plain-input-control {
+  flex: 1;
+}
+.plain-input-input {
+  width: 100%;
+  color: #222222;
+  font-size: 32rpx;
+  height: 42rpx;
+  line-height: 42rpx;
+}
+.plain-input-placeholder {
+  font-size: 26rpx;
+}
+.plain-input-btn {
+  font-size: 32rpx;
+  color: #fcb231;
+  border: none;
+  background-color: transparent !important;
+}
+.plain-input-btn::after {
+  display: none;
+}
+.plain-input-more {
+  font-size: 28rpx;
+  line-height: 88rpx;
+  height: 88rpx;
+}

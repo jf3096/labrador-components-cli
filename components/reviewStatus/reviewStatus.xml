@@ -1,0 +1,11 @@
+<view class="review-status">
+    <view class="review-status-ic-wrapper">
+        <!--<icon class="search-bar-clear" type="clear" catchtap="handleClear" size="14"/>-->
+    </view>
+    <view class="review-status-title">
+        {{state.title}}
+    </view>
+    <view class="review-status-detail">
+        <text>{{state.message}}</text>
+    </view>
+</view>

@@ -1,0 +1,20 @@
+@import (reference) '../../assets/css/index';
+
+@scrollStatusBar: scroll-status-bar;
+
+.@{scrollStatusBar} {
+  &-loader {
+    .heightSingle(84);
+    .flex();
+    .flex-hvc();
+  }
+  &-btn {
+    .fontSize(26);
+    color: #fcb231;
+    border: none;
+    background-color: transparent !important;
+    &::after {
+      display: none;
+    }
+  }
+}

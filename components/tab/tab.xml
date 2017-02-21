@@ -1,0 +1,16 @@
+<view class="tab">
+    <view class="tab-item"
+          wx:for="{{props.titles}}"
+          wx:key="*this"
+          wx:for-item="title"
+          bindtap="bindTabTap"
+          data-index="{{index}}"
+    >
+        <view wx:if="{{props.activeIndex === index}}" class="tab-title tab-active">
+            {{title}}
+        </view>
+        <view class="tab-title" wx:else="">
+            {{title}}
+        </view>
+    </view>
+</view>

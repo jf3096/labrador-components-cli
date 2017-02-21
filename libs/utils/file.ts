@@ -46,3 +46,15 @@ export function getAllFiles(sourceFileSrc: string): Promise<string[]> {
         resolve(files);
     }));
 }
+
+export const getAvailableComponents = (() => {
+    let result = null;
+    return () => {
+        if (!result) {
+            const componentsDir = path.resolve(__dirname, '../../components');
+            const dirs = fs.readdirSync(componentsDir);
+            result = '> ' + dirs.join('\r\n> ');
+        }
+        return result;
+    }
+})();

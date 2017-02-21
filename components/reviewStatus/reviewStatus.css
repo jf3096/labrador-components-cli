@@ -1,0 +1,27 @@
+.review-status {
+  padding: 136rpx 94rpx;
+}
+.review-status-ic-wrapper {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 22rpx;
+  border-radius: 750rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #28D185;
+}
+.review-status-title {
+  font-size: 42rpx;
+  margin-bottom: 54rpx;
+  color: #28D185;
+  text-align: center;
+}
+.review-status-detail {
+  font-size: 34rpx;
+  color: #898989;
+  line-height: 1.5;
+  text-align: center;
+}
